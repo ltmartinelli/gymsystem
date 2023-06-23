@@ -11,38 +11,43 @@ import java.util.Set;
 @Table(name = "tb_contract")
 public class Contract {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private ContractPK id = new ContractPK();
 
     private LocalDate startDate;
     private LocalDate endDate;
     private Double installmentPrice;
 
     @ManyToOne
-    @JoinColumn(name="plan_id")
+    @JoinColumn(name = "plan_id")
     private Plan plan;
-
-    @OneToMany(mappedBy = "contract")
-    private Set<Payment> payments = new HashSet<>();
 
     public Contract() {
     }
 
-    public Contract(Long id, LocalDate startDate, LocalDate endDate, Double installmentPrice, Plan plan) {
-        this.id = id;
+    public Contract(Unit unit, User user, LocalDate startDate, LocalDate endDate, Double installmentPrice, Plan plan) {
+        id.setUnit(unit);
+        id.setUser(user);
         this.startDate = startDate;
         this.endDate = endDate;
         this.installmentPrice = installmentPrice;
         this.plan = plan;
     }
 
-    public Long getId() {
-        return id;
+    public Unit getUnit() {
+        return id.getUnit();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUnit(Unit unit) {
+        id.setUnit(unit);
+    }
+
+    public User getUser() {
+        return id.getUser();
+    }
+
+    public void setUser(User user) {
+        id.setUser(user);
     }
 
     public LocalDate getStartDate() {
@@ -75,10 +80,6 @@ public class Contract {
 
     public void setPlan(Plan plan) {
         this.plan = plan;
-    }
-
-    public Set<Payment> getPayments() {
-        return payments;
     }
 
     @Override
