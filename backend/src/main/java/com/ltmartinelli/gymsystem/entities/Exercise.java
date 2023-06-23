@@ -17,6 +17,10 @@ public class Exercise {
     private Integer reps;
     private Integer weight;
 
+    @ManyToOne
+    @JoinColumn(name="workout_id")
+    private Workout workout;
+
     public Exercise() {
     }
 
