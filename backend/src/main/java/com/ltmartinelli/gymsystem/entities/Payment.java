@@ -23,15 +23,20 @@ public class Payment {
 
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "contract_id")
+    private Contract contract;
+
     public Payment() {
     }
 
-    public Payment(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price) {
+    public Payment(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price, Contract contract) {
         this.id = id;
         this.paymentDate = paymentDate;
         this.dueDate = dueDate;
         this.status = status;
         this.price = price;
+        this.contract = contract;
     }
 
     public Long getId() {
@@ -72,6 +77,14 @@ public class Payment {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 
     @Override

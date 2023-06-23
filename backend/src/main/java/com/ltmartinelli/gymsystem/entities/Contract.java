@@ -3,7 +3,9 @@ package com.ltmartinelli.gymsystem.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_contract")
@@ -20,6 +22,9 @@ public class Contract {
     @ManyToOne
     @JoinColumn(name="plan_id")
     private Plan plan;
+
+    @OneToMany(mappedBy = "contract")
+    private Set<Payment> payments = new HashSet<>();
 
     public Contract() {
     }
@@ -70,6 +75,10 @@ public class Contract {
 
     public void setPlan(Plan plan) {
         this.plan = plan;
+    }
+
+    public Set<Payment> getPayments() {
+        return payments;
     }
 
     @Override
