@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity
-@Table(name = "tb_address")
-public class Address {
+@MappedSuperclass
+public abstract class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
