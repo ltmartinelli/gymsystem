@@ -22,13 +22,17 @@ public class User {
     private String phone;
     private LocalDate birthDate;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private UserAddress address;
+    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+    private ClientAddress address;
+
+    @ManyToOne
+    @JoinColumn(name = "unit_id")
+    private Unit unit;
 
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, String phone, LocalDate birthDate, UserAddress address) {
+    public User(Long id, String name, String email, String password, String phone, LocalDate birthDate, ClientAddress address, Unit unit) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -36,6 +40,7 @@ public class User {
         this.phone = phone;
         this.birthDate = birthDate;
         this.address = address;
+        this.unit = unit;
     }
 
     public Long getId() {
@@ -86,12 +91,20 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public UserAddress getAddress() {
+    public ClientAddress getAddress() {
         return address;
     }
 
-    public void setAddress(UserAddress address) {
+    public void setAddress(ClientAddress address) {
         this.address = address;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 
     @Override

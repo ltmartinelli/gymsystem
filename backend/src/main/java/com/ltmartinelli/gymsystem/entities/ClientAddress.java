@@ -7,32 +7,32 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_user_address")
-public class UserAddress extends Address {
+public class ClientAddress extends Address {
 
     @OneToOne
     @MapsId
-    private User user;
+    private User client;
 
-    public UserAddress() {
+    public ClientAddress() {
     }
 
-    public UserAddress(Long id, String state, String city, Integer number, String zip, User user) {
+    public ClientAddress(Long id, String state, String city, Integer number, String zip, User user) {
         super(id, state, city, number, zip);
-        this.user = user;
+        this.client = user;
     }
 
-    public User getUser() {
-        return user;
+    public User getClient() {
+        return client;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(User client) {
+        this.client = client;
     }
 
     @Override
     public String toString() {
-        return "UserAddress{" +
-                "user=" + user +
+        return "ClientAddress{" +
+                "client=" + client +
                 super.toString() +
                 "} ";
     }

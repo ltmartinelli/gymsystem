@@ -2,7 +2,9 @@ package com.ltmartinelli.gymsystem.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_unit")
@@ -16,6 +18,10 @@ public class Unit {
 
     @OneToOne(mappedBy = "unit", cascade = CascadeType.ALL)
     private UnitAddress address;
+
+    @OneToMany(mappedBy = "unit")
+    private Set<User> clients = new HashSet<>();
+
 
     public Unit() {
     }
@@ -48,6 +54,10 @@ public class Unit {
 
     public void setAddress(UnitAddress address) {
         this.address = address;
+    }
+
+    public Set<User> getClients() {
+        return clients;
     }
 
     @Override
