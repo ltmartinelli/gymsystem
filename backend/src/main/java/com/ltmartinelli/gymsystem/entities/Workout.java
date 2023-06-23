@@ -43,6 +43,10 @@ public class Workout {
         this.name = name;
     }
 
+    public Set<Exercise> getExercises() {
+        return exercises;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

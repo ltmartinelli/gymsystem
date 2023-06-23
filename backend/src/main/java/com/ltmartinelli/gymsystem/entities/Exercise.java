@@ -24,7 +24,7 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(Long id, String name, Integer sets, Integer reps, Integer weight) {
+    public Exercise(Long id, String name, Integer sets, Integer reps, Integer weight, Workout workout) {
         this.id = id;
         this.name = name;
         this.sets = sets;
@@ -70,6 +70,14 @@ public class Exercise {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
+    }
+
+    public Workout getWorkout() {
+        return workout;
+    }
+
+    public void setWorkout(Workout workout) {
+        this.workout = workout;
     }
 
     @Override
