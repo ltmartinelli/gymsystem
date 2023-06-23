@@ -11,8 +11,8 @@ import java.util.Objects;
 public class ContractPK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "client_id")
+    private User client;
 
     @ManyToOne
     @JoinColumn(name = "unit_id")
@@ -21,12 +21,12 @@ public class ContractPK implements Serializable {
     public ContractPK() {
     }
 
-    public User getUser() {
-        return user;
+    public User getClient() {
+        return client;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(User user) {
+        this.client = user;
     }
 
     public Unit getUnit() {
@@ -41,18 +41,18 @@ public class ContractPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ContractPK that)) return false;
-        return Objects.equals(user, that.user) && Objects.equals(unit, that.unit);
+        return Objects.equals(client, that.client) && Objects.equals(unit, that.unit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, unit);
+        return Objects.hash(client, unit);
     }
 
     @Override
     public String toString() {
         return "ContractPK{" +
-                "user=" + user +
+                "client=" + client +
                 ", unit=" + unit +
                 '}';
     }

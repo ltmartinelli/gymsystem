@@ -27,7 +27,7 @@ public class Contract {
 
     public Contract(Unit unit, User user, LocalDate startDate, LocalDate endDate, Double installmentPrice, Plan plan) {
         id.setUnit(unit);
-        id.setUser(user);
+        id.setClient(user);
         this.startDate = startDate;
         this.endDate = endDate;
         this.installmentPrice = installmentPrice;
@@ -43,11 +43,11 @@ public class Contract {
     }
 
     public User getUser() {
-        return id.getUser();
+        return id.getClient();
     }
 
     public void setUser(User user) {
-        id.setUser(user);
+        id.setClient(user);
     }
 
     public LocalDate getStartDate() {

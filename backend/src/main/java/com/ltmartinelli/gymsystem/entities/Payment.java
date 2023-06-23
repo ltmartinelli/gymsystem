@@ -25,7 +25,7 @@ public class Payment {
 
     @ManyToOne
     @JoinColumns({
-            @JoinColumn(name = "client_id", referencedColumnName = "user_id"),
+            @JoinColumn(name = "client_id", referencedColumnName = "client_id"),
             @JoinColumn(name = "unit_id", referencedColumnName = "unit_id")
     })
     private Contract contract;
