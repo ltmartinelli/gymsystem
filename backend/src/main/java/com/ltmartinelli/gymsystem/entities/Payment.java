@@ -24,19 +24,23 @@ public class Payment {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private User client;
+    @JoinColumns({
+            @JoinColumn(name = "client_id", referencedColumnName = "user_id"),
+            @JoinColumn(name = "unit_id", referencedColumnName = "unit_id")
+    })
+    private Contract contract;
+
 
     public Payment() {
     }
 
-    public Payment(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price, User client) {
+    public Payment(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price, Contract contract) {
         this.id = id;
         this.paymentDate = paymentDate;
         this.dueDate = dueDate;
         this.status = status;
         this.price = price;
-        this.client = client;
+        this.contract = contract;
     }
 
     public Long getId() {
@@ -79,12 +83,12 @@ public class Payment {
         this.price = price;
     }
 
-    public User getClient() {
-        return client;
+    public Contract getContract() {
+        return contract;
     }
 
-    public void setClient(User client) {
-        this.client = client;
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 
     @Override
@@ -107,7 +111,7 @@ public class Payment {
                 ", dueDate=" + dueDate +
                 ", status=" + status +
                 ", price=" + price +
-                ", client=" + client +
+                ", contract=" + contract +
                 '}';
     }
 }
