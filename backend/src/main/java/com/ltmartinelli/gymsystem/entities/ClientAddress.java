@@ -6,7 +6,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_user_address")
+@Table(name = "tb_client_address")
 public class ClientAddress extends Address {
 
     @OneToOne

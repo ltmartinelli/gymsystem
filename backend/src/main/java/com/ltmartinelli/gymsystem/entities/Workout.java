@@ -19,12 +19,17 @@ public class Workout {
     @OneToMany(mappedBy = "workout")
     private Set<Exercise> exercises = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Workout() {
     }
 
-    public Workout(Long id, String name) {
+    public Workout(Long id, String name, User user) {
         this.id = id;
         this.name = name;
+        this.user = user;
     }
 
     public Long getId() {
@@ -45,6 +50,14 @@ public class Workout {
 
     public Set<Exercise> getExercises() {
         return exercises;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

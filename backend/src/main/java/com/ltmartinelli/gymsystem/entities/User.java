@@ -1,8 +1,11 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.jdbc.Work;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +31,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "unit_id")
     private Unit unit;
+
+    @OneToMany(mappedBy = "user")
+    private List<Workout> workouts = new ArrayList<>();
 
     public User() {
     }
@@ -105,6 +111,10 @@ public class User {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public List<Workout> getWorkouts() {
+        return workouts;
     }
 
     @Override
