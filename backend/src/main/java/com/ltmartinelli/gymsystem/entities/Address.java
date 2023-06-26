@@ -13,6 +13,7 @@ public abstract class Address {
 
     private String state;
     private String city;
+    private String street;
     private Integer number;
     private String zip;
 
@@ -67,6 +68,14 @@ public abstract class Address {
         this.zip = zip;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,6 +94,7 @@ public abstract class Address {
                 "id=" + id +
                 ", state='" + state + '\'' +
                 ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
                 ", number=" + number +
                 ", zip='" + zip + '\'' +
                 '}';
