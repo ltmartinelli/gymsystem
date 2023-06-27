@@ -9,13 +9,13 @@ public abstract class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
-    private String state;
-    private String city;
-    private String street;
-    private Integer number;
-    private String zip;
+    protected String state;
+    protected String city;
+    protected String street;
+    protected Integer number;
+    protected String zip;
 
     public Address() {
     }
