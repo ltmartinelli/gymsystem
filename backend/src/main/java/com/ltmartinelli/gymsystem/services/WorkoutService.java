@@ -3,6 +3,7 @@ package com.ltmartinelli.gymsystem.services;
 import com.ltmartinelli.gymsystem.dto.WorkoutDTO;
 import com.ltmartinelli.gymsystem.entities.Workout;
 import com.ltmartinelli.gymsystem.repositories.WorkoutRepository;
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
