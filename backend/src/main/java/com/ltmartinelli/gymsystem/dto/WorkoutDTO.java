@@ -21,8 +21,8 @@ public class WorkoutDTO {
     }
 
     public WorkoutDTO(Workout entity) {
-        this.id = id;
-        this.name = name;
+        id = entity.getId();
+        name = entity.getName();
         for (Exercise exerc : entity.getExercises()) {
             exercises.add(new ExerciseDTO(exerc));
         }
