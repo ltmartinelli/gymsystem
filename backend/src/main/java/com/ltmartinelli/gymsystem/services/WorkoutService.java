@@ -3,6 +3,7 @@ package com.ltmartinelli.gymsystem.services;
 import com.ltmartinelli.gymsystem.dto.WorkoutDTO;
 import com.ltmartinelli.gymsystem.entities.Workout;
 import com.ltmartinelli.gymsystem.repositories.WorkoutRepository;
+import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class WorkoutService {
 
     @Transactional(readOnly = true)
     public WorkoutDTO findById(Long id) {
-        Workout workout = repository.getReferenceById(id);
+        Workout workout = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
         return new WorkoutDTO(workout);
     }
 
