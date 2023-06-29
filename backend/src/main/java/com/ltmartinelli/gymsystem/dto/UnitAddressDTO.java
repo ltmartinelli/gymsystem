@@ -1,14 +1,22 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.UnitAddress;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 public class UnitAddressDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String state;
+    @NotBlank(message = "Campo requerido")
     private String city;
+    @NotBlank(message = "Campo requerido")
     private String street;
+    @NotBlank(message = "Campo requerido")
+    @Positive(message = "O número deve ser positivo")
     private Integer number;
+    @NotBlank(message = "Campo requerido")
     private String zip;
     private Long unitId;
 

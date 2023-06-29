@@ -2,6 +2,8 @@ package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Payment;
 import com.ltmartinelli.gymsystem.entities.PaymentStatus;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Positive;
 
 import java.time.Instant;
 
@@ -9,8 +11,10 @@ public class PaymentDTO {
 
     private Long id;
     private Instant paymentDate;
+    @Future(message = "A data não pode ser no passado")
     private Instant dueDate;
     private PaymentStatus status;
+    @Positive(message = "O valor deve ser positivo")
     private Double price;
     private ContractDTO contract;
 

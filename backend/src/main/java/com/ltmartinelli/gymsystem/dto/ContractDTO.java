@@ -1,6 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Contract;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
@@ -8,9 +9,13 @@ public class ContractDTO {
 
     private Long clientId;
     private Long unitId;
+    @PastOrPresent(message = "A data não pode ser no futuro")
     private LocalDate startDate;
+    @Future(message = "A data não pode ser no passado")
     private LocalDate endDate;
+    @Positive
     private Double installmentPrice;
+    @NotBlank(message = "Campo requerido")
     private String planName;
 
     public ContractDTO() {

@@ -1,14 +1,20 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Plan;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.util.Set;
 
 public class PlanDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
+    @Positive(message = "O valor deve ser positivo")
     private Double price;
+    @NotBlank(message = "Campo requerido")
     private String description;
 
     public PlanDTO() {

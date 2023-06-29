@@ -1,13 +1,22 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Exercise;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 public class ExerciseDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
+    @Positive(message = "O valor deve ser positivo")
     private Integer sets;
+    @NotBlank(message = "Campo requerido")
+    @Positive(message = "O valor deve ser positivo")
     private Integer reps;
+    @NotBlank(message = "Campo requerido")
+    @Positive(message = "O valor deve ser positivo")
     private Integer weight;
 
     public ExerciseDTO() {

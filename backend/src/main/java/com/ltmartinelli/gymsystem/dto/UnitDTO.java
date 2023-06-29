@@ -1,11 +1,14 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Unit;
+import jakarta.validation.constraints.NotBlank;
 
 public class UnitDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
     private UnitAddressDTO address;
 
     public UnitDTO() {

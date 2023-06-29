@@ -1,16 +1,22 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.User;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
 public class UserDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
     private String email;
+    @NotBlank(message = "Campo requerido")
     private String phone;
+    @NotBlank(message = "Campo requerido")
     private LocalDate birthDate;
+    @NotBlank(message = "Campo requerido")
     private ClientAddressDTO address;
     private UnitDTO unit;
 
