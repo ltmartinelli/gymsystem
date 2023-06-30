@@ -1,7 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Unit;
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 public class UnitDTO {
 

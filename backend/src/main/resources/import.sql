@@ -40,6 +40,21 @@ INSERT INTO tb_exercise (name, sets, reps, weight, workout_id) VALUES ('Agachame
 INSERT INTO tb_exercise (name, sets, reps, weight, workout_id) VALUES ('Leg Press 45', 3, 12, 120, 6)
 INSERT INTO tb_exercise (name, sets, reps, weight, workout_id) VALUES ('Cadeira Extensora', 3, 12, 45, 6)
 
+INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT')
+INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN')
+
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (4,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (6,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (7,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (8,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (9,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (10,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (11,1)
+INSERT INTO tb_user_role (user_id, role_id) VALUES (11,2)
 
 INSERT INTO tb_client_address (state, city, zip, street, number, client_id) VALUES ('RS', 'Canoas', '92200-580', 'Rua Diretor Augusto Pestana', 328, 1)
 INSERT INTO tb_client_address (state, city, zip, street, number, client_id) VALUES ('RS', 'Porto Alegre', '90010-000', 'Avenida Borges de Medeiros', 123, 2)

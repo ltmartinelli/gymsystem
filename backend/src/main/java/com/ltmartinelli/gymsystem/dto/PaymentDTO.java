@@ -2,8 +2,8 @@ package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Payment;
 import com.ltmartinelli.gymsystem.entities.PaymentStatus;
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.Positive;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Positive;
 
 import java.time.Instant;
 

@@ -1,8 +1,8 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Plan;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 import java.util.Set;
 

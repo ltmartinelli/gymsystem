@@ -1,9 +1,9 @@
 package com.ltmartinelli.gymsystem.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_client_address")

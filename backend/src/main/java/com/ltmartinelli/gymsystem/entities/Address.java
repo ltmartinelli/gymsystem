@@ -1,6 +1,6 @@
 package com.ltmartinelli.gymsystem.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.Objects;
 

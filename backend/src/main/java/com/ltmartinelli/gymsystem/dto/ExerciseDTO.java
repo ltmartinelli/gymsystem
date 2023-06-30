@@ -1,8 +1,8 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Exercise;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 public class ExerciseDTO {
 

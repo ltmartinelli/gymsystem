@@ -2,8 +2,8 @@ package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Exercise;
 import com.ltmartinelli.gymsystem.entities.Workout;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import java.util.HashSet;
 import java.util.Set;

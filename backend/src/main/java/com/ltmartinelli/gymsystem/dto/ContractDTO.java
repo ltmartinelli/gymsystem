@@ -1,7 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Contract;
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 
 import java.time.LocalDate;
 
