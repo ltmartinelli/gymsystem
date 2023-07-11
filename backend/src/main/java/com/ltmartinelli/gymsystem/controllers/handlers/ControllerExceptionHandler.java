@@ -3,6 +3,7 @@ package com.ltmartinelli.gymsystem.controllers.handlers;
 import com.ltmartinelli.gymsystem.dto.CustomError;
 import com.ltmartinelli.gymsystem.dto.ValidationError;
 import com.ltmartinelli.gymsystem.services.exceptions.DatabaseException;
+import com.ltmartinelli.gymsystem.services.exceptions.ForbiddenException;
 import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,13 @@ public class ControllerExceptionHandler {
             err.addError(f.getField(),f.getDefaultMessage());
         }
 
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<CustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 

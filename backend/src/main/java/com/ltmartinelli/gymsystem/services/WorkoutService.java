@@ -17,9 +17,13 @@ public class WorkoutService {
     @Autowired
     private WorkoutRepository repository;
 
+    @Autowired
+    private AuthService authService;
+
     @Transactional(readOnly = true)
     public WorkoutDTO findById(Long id) {
         Workout workout = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
+        authService.validateSelfOrAdmin(workout.getUser().getId());
         return new WorkoutDTO(workout);
     }
 

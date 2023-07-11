@@ -17,6 +17,7 @@ public class WorkoutController {
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<WorkoutDTO> findById(@PathVariable Long id){
+
         return ResponseEntity.ok(service.findById(id));
     }
 
