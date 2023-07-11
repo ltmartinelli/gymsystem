@@ -1,9 +1,13 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.User;
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO {
 
@@ -20,10 +24,12 @@ public class UserDTO {
     private ClientAddressDTO address;
     private UnitDTO unit;
 
+    private List<String> roles = new ArrayList<>();
+
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String name, String email, String password, String phone, LocalDate birthDate, ClientAddressDTO address, UnitDTO unit) {
+    public UserDTO(Long id, String name, String email, String phone, LocalDate birthDate, ClientAddressDTO address, UnitDTO unit) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -37,10 +43,14 @@ public class UserDTO {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();
-        phone = entity.getPassword();
+        phone = entity.getPhone();
         birthDate = entity.getBirthDate();
         address = new ClientAddressDTO(entity.getAddress());
         unit = new UnitDTO(entity.getUnit());
+
+        for(GrantedAuthority role : entity.getAuthorities()){
+            roles.add(role.getAuthority());
+        }
     }
 
     public Long getId() {
@@ -97,6 +107,10 @@ public class UserDTO {
 
     public void setUnit(UnitDTO unit) {
         this.unit = unit;
+    }
+
+    public List<String> getRoles() {
+        return roles;
     }
 }
 
