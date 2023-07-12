@@ -7,12 +7,18 @@ import com.ltmartinelli.gymsystem.entities.User;
 import com.ltmartinelli.gymsystem.entities.Workout;
 import com.ltmartinelli.gymsystem.repositories.ExerciseRepository;
 import com.ltmartinelli.gymsystem.repositories.WorkoutRepository;
+import com.ltmartinelli.gymsystem.services.exceptions.DatabaseException;
 import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityNotFoundException;
 
 @Service
 public class WorkoutService {
@@ -55,11 +61,41 @@ public class WorkoutService {
         return new WorkoutDTO(workout);
     }
 
+    @Transactional
+    public WorkoutDTO update(Long id, WorkoutDTO dto) {
+
+        try {
+            Workout workout = repository.getReferenceById(id);
+            copyDTOToWorkout(dto, workout);
+            workout = repository.save(workout);
+            return new WorkoutDTO(workout);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
+
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void delete(Long id) {
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Falha na integridade referencial");
+        }
+    }
+
     private void copyDTOToWorkout(WorkoutDTO dto, Workout entity) {
         entity.setName(dto.getName());
         entity.setUser(userService.authenticated());
 
-         for (ExerciseDTO e : dto.getExercises()) {
+        for (Exercise e : entity.getExercises()) {
+            exerciseRepository.delete(e);
+        }
+        entity.getExercises().clear();
+
+        for (ExerciseDTO e : dto.getExercises()) {
             Exercise exercise = new Exercise();
             exercise.setName(e.getName());
             exercise.setSets(e.getSets());
@@ -70,5 +106,7 @@ public class WorkoutService {
             entity.getExercises().add(exercise);
         }
     }
+
+
 
 }

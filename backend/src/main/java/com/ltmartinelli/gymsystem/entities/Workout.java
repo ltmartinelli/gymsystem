@@ -16,7 +16,7 @@ public class Workout {
 
     private String name;
 
-    @OneToMany(mappedBy = "workout")
+    @OneToMany(mappedBy = "workout",cascade = CascadeType.ALL)
     private Set<Exercise> exercises = new HashSet<>();
 
     @ManyToOne
