@@ -1,9 +1,13 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Contract;
+import com.ltmartinelli.gymsystem.entities.Payment;
+
 import javax.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ContractDTO {
 
@@ -17,6 +21,8 @@ public class ContractDTO {
     private Double installmentPrice;
     @NotBlank(message = "Campo requerido")
     private String planName;
+
+    private Set<PaymentDTO> payments = new HashSet<>();
 
     public ContractDTO() {
     }
@@ -37,6 +43,10 @@ public class ContractDTO {
         endDate = entity.getEndDate();
         installmentPrice = entity.getInstallmentPrice();
         planName = entity.getPlan().getName();
+
+        for(Payment p : entity.getPayments()){
+            payments.add(new PaymentDTO(p));
+        }
     }
 
     public Long getClientId() {
@@ -85,5 +95,9 @@ public class ContractDTO {
 
     public void setPlanName(String planName) {
         this.planName = planName;
+    }
+
+    public Set<PaymentDTO> getPayments() {
+        return payments;
     }
 }

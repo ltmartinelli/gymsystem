@@ -22,6 +22,9 @@ public class Contract {
     @JoinColumn(name = "plan_id")
     private Plan plan;
 
+    @OneToMany(mappedBy = "contract")
+    private Set<Payment> payments = new HashSet<>();
+
     public Contract() {
     }
 
@@ -80,6 +83,10 @@ public class Contract {
 
     public void setPlan(Plan plan) {
         this.plan = plan;
+    }
+
+    public Set<Payment> getPayments() {
+        return payments;
     }
 
     @Override

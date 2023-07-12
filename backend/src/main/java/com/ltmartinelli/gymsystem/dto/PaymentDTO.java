@@ -16,18 +16,18 @@ public class PaymentDTO {
     private PaymentStatus status;
     @Positive(message = "O valor deve ser positivo")
     private Double price;
-    private ContractDTO contract;
+    private Long userId;
 
     public PaymentDTO() {
     }
 
-    public PaymentDTO(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price, Long contractId, ContractDTO contract) {
+    public PaymentDTO(Long id, Instant paymentDate, Instant dueDate, PaymentStatus status, Double price, Long contractId, Long userId) {
         this.id = id;
         this.paymentDate = paymentDate;
         this.dueDate = dueDate;
         this.status = status;
         this.price = price;
-        this.contract = contract;
+        this.userId = userId;
     }
 
     public PaymentDTO(Payment entity) {
@@ -36,7 +36,7 @@ public class PaymentDTO {
         dueDate = entity.getDueDate();
         status = entity.getStatus();
         price = entity.getPrice();
-        contract = new ContractDTO(entity.getContract());
+        userId = entity.getContract().getUser().getId();
     }
 
     public Long getId() {
@@ -79,11 +79,11 @@ public class PaymentDTO {
         this.price = price;
     }
 
-    public ContractDTO getContract() {
-        return contract;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setContract(ContractDTO contract) {
-        this.contract = contract;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
