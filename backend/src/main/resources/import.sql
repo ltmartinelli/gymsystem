@@ -76,10 +76,7 @@ INSERT INTO tb_plan (name, price, description) VALUES ('Bronze', 50.00, 'Plano B
 INSERT INTO tb_plan (name, price, description) VALUES ('Silver', 100.00, 'Plano Silver')
 INSERT INTO tb_plan (name, price, description) VALUES ('Gold', 200.00, 'Melhor plano')
 
-INSERT INTO tb_contract (start_date, end_date, installment_price, client_id, plan_id, unit_id) VALUES ('2024-01-01', '2024-01-31', 50.00, 1, 1, 1)
 INSERT INTO tb_contract (start_date, end_date, installment_price, client_id, plan_id, unit_id) VALUES ('2024-01-01', '2024-12-31', 200.00, 2, 3, 1)
-
-INSERT INTO tb_payment (price, status, due_date, payment_date, client_id, unit_id) VALUES (50.00, 0, '2024-01-31', null, 1, 1)
 
 INSERT INTO tb_payment (price, status, due_date, payment_date, client_id, unit_id) VALUES (200.00, 1, '2024-01-31', '2024-01-15T15:34:22Z', 2, 1)
 INSERT INTO tb_payment (price, status, due_date, payment_date, client_id, unit_id) VALUES (200.00, 0, '2024-02-29', null, 2, 1)

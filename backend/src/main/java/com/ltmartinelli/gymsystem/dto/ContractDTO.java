@@ -13,6 +13,7 @@ public class ContractDTO {
 
     private Long clientId;
     private Long unitId;
+    private Long planId;
     @PastOrPresent(message = "A data não pode ser no futuro")
     private LocalDate startDate;
     @Future(message = "A data não pode ser no passado")
@@ -21,15 +22,16 @@ public class ContractDTO {
     private Double installmentPrice;
     @NotBlank(message = "Campo requerido")
     private String planName;
-
+    @NotEmpty(message = "Deve haver pelo menos um pagamento para o contrato")
     private Set<PaymentDTO> payments = new HashSet<>();
 
     public ContractDTO() {
     }
 
-    public ContractDTO(Long clientId, Long unitId, LocalDate startDate, LocalDate endDate, Double installmentPrice, String planName) {
+    public ContractDTO(Long clientId, Long unitId, Long planId , LocalDate startDate, LocalDate endDate, Double installmentPrice, String planName) {
         this.clientId = clientId;
         this.unitId = unitId;
+        this.planId = planId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.installmentPrice = installmentPrice;
@@ -39,6 +41,7 @@ public class ContractDTO {
     public ContractDTO(Contract entity) {
         clientId = entity.getUser().getId();
         unitId = entity.getUnit().getId();
+        planId = entity.getPlan().getId();
         startDate = entity.getStartDate();
         endDate = entity.getEndDate();
         installmentPrice = entity.getInstallmentPrice();
@@ -55,6 +58,14 @@ public class ContractDTO {
 
     public void setClientId(Long clientId) {
         this.clientId = clientId;
+    }
+
+    public Long getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(Long planId) {
+        this.planId = planId;
     }
 
     public Long getUnitId() {

@@ -21,7 +21,8 @@ public class UserService implements UserDetailsService {
     private UserRepository repository;
 
     protected User authenticated() {
-        try{String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        try {
+            String username = SecurityContextHolder.getContext().getAuthentication().getName();
             return repository.findByEmail(username);
         } catch (Exception e) {
             throw new UsernameNotFoundException("Invalid User");
@@ -49,5 +50,10 @@ public class UserService implements UserDetailsService {
     public Page<UserMinDTO> searchByName(String name, Pageable pageable) {
         Page<User> users = repository.searchByName(name, pageable);
         return users.map(user -> new UserMinDTO(user));
+    }
+
+    @Transactional(readOnly = true)
+    public User findById(Long id) {
+        return repository.getReferenceById(id);
     }
 }

@@ -22,7 +22,7 @@ public class Contract {
     @JoinColumn(name = "plan_id")
     private Plan plan;
 
-    @OneToMany(mappedBy = "contract")
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
     private Set<Payment> payments = new HashSet<>();
 
     public Contract() {
