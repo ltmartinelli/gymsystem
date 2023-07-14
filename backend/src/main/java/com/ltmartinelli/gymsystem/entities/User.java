@@ -1,11 +1,9 @@
 package com.ltmartinelli.gymsystem.entities;
 
-import javax.persistence.*;
-
-import org.hibernate.jdbc.Work;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -33,13 +31,13 @@ public class User implements UserDetails {
     private Unit unit;
 
     @OneToMany(mappedBy = "user")
-    private List<Workout> workouts = new ArrayList<>();
+    private final List<Workout> workouts = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private final Set<Role> roles = new HashSet<>();
 
     public User() {
     }

@@ -3,7 +3,6 @@ package com.ltmartinelli.gymsystem.services;
 import com.ltmartinelli.gymsystem.dto.ExerciseDTO;
 import com.ltmartinelli.gymsystem.dto.WorkoutDTO;
 import com.ltmartinelli.gymsystem.entities.Exercise;
-import com.ltmartinelli.gymsystem.entities.User;
 import com.ltmartinelli.gymsystem.entities.Workout;
 import com.ltmartinelli.gymsystem.repositories.ExerciseRepository;
 import com.ltmartinelli.gymsystem.repositories.WorkoutRepository;
@@ -106,7 +105,6 @@ public class WorkoutService {
             entity.getExercises().add(exercise);
         }
     }
-
 
 
 }

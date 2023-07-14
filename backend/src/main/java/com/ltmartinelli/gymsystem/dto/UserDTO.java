@@ -4,12 +4,13 @@ import com.ltmartinelli.gymsystem.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.validation.constraints.NotBlank;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
+
+    //User DTO with complete user details, used when accessing a specific user's profile.
 
     private Long id;
     @NotBlank(message = "Campo requerido")
@@ -24,7 +25,7 @@ public class UserDTO {
     private ClientAddressDTO address;
     private UnitDTO unit;
 
-    private List<String> roles = new ArrayList<>();
+    private final List<String> roles = new ArrayList<>();
 
     public UserDTO() {
     }
@@ -48,7 +49,7 @@ public class UserDTO {
         address = new ClientAddressDTO(entity.getAddress());
         unit = new UnitDTO(entity.getUnit());
 
-        for(GrantedAuthority role : entity.getAuthorities()){
+        for (GrantedAuthority role : entity.getAuthorities()) {
             roles.add(role.getAuthority());
         }
     }

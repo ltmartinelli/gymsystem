@@ -4,6 +4,7 @@ import com.ltmartinelli.gymsystem.dto.UserDTO;
 import com.ltmartinelli.gymsystem.dto.UserMinDTO;
 import com.ltmartinelli.gymsystem.entities.User;
 import com.ltmartinelli.gymsystem.repositories.UserRepository;
+import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +21,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository repository;
 
+    //Returns a User Entity for the Logged User
     protected User authenticated() {
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -30,6 +32,7 @@ public class UserService implements UserDetailsService {
 
     }
 
+    //Returns a User DTO for the Logged User
     @Transactional
     public UserDTO getMe() {
         User entity = authenticated();
@@ -54,6 +57,6 @@ public class UserService implements UserDetailsService {
 
     @Transactional(readOnly = true)
     public User findById(Long id) {
-        return repository.getReferenceById(id);
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
     }
 }

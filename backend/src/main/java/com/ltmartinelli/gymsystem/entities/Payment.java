@@ -1,13 +1,15 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_payment")
 public class Payment {
+
+    //Payment price is defined in instantiation based on the associated contract's Plan
+    //After instantiation, payment price is not supposed to be changed even if the Plan's price change in the future.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

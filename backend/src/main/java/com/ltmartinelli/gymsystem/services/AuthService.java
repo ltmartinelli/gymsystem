@@ -11,10 +11,11 @@ public class AuthService {
     @Autowired
     UserService userService;
 
-    public void validateSelfOrAdmin(Long userId){
-
+    //Throws and exception if the user trying to access a resource is not an Admin or related to that resource
+    //Provide the ID of that resource's user as a parameter, and the method will check if the logged user is that same user
+    public void validateSelfOrAdmin(Long userId) {
         User me = userService.authenticated();
-        if(!me.hasRole("ROLE_ADMIN") && !me.getId().equals(userId)){
+        if (!me.hasRole("ROLE_ADMIN") && !me.getId().equals(userId)) {
             throw new ForbiddenException("Access denied");
         }
     }

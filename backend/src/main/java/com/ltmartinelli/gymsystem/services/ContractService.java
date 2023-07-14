@@ -54,7 +54,7 @@ public class ContractService {
         entity.setEndDate(dto.getEndDate());
         entity.setInstallmentPrice(planService.findById(dto.getPlanId()).getPrice());
 
-        for(PaymentDTO p : dto.getPayments()) {
+        for (PaymentDTO p : dto.getPayments()) {
             Payment payment = new Payment();
             payment.setStatus(p.getStatus());
             payment.setPaymentDate(p.getPaymentDate());

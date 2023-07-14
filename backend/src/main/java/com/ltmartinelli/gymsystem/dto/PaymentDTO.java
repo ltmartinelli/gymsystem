@@ -2,9 +2,9 @@ package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Payment;
 import com.ltmartinelli.gymsystem.entities.PaymentStatus;
+
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Positive;
-
 import java.time.Instant;
 
 public class PaymentDTO {

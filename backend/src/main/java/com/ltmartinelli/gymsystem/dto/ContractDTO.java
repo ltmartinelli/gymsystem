@@ -4,12 +4,14 @@ import com.ltmartinelli.gymsystem.entities.Contract;
 import com.ltmartinelli.gymsystem.entities.Payment;
 
 import javax.validation.constraints.*;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ContractDTO {
+
+    //A DTO containing a contract's information as well as its collection of payments.
+    //Payments are instantiated alongside the contract and later individually updated after payment or contract cancellation.
 
     private Long clientId;
     private Long unitId;
@@ -23,12 +25,12 @@ public class ContractDTO {
     @NotBlank(message = "Campo requerido")
     private String planName;
     @NotEmpty(message = "Deve haver pelo menos um pagamento para o contrato")
-    private Set<PaymentDTO> payments = new HashSet<>();
+    private final Set<PaymentDTO> payments = new HashSet<>();
 
     public ContractDTO() {
     }
 
-    public ContractDTO(Long clientId, Long unitId, Long planId , LocalDate startDate, LocalDate endDate, Double installmentPrice, String planName) {
+    public ContractDTO(Long clientId, Long unitId, Long planId, LocalDate startDate, LocalDate endDate, Double installmentPrice, String planName) {
         this.clientId = clientId;
         this.unitId = unitId;
         this.planId = planId;
@@ -47,7 +49,7 @@ public class ContractDTO {
         installmentPrice = entity.getInstallmentPrice();
         planName = entity.getPlan().getName();
 
-        for(Payment p : entity.getPayments()){
+        for (Payment p : entity.getPayments()) {
             payments.add(new PaymentDTO(p));
         }
     }

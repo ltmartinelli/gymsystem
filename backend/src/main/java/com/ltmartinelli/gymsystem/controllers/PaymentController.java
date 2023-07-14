@@ -16,12 +16,14 @@ public class PaymentController {
     @Autowired
     PaymentService service;
 
+    //Returns a specific payment by providing an ID
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<PaymentDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
+    //Allows admin to update a payment's Status and payment date.
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<PaymentDTO> update(@PathVariable Long id, @Valid @RequestBody PaymentDTO dto) {

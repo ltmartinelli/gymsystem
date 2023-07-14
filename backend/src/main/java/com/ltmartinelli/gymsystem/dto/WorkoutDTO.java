@@ -2,9 +2,9 @@ package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Exercise;
 import com.ltmartinelli.gymsystem.entities.Workout;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class WorkoutDTO {
     @NotBlank(message = "Campo requerido")
     private String name;
     @NotEmpty(message = "Crie pelo menos um exercício para este treino")
-    private Set<ExerciseDTO> exercises = new HashSet<>();
+    private final Set<ExerciseDTO> exercises = new HashSet<>();
 
     public WorkoutDTO() {
     }

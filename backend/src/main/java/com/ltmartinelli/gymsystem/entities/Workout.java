@@ -1,7 +1,6 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -16,8 +15,8 @@ public class Workout {
 
     private String name;
 
-    @OneToMany(mappedBy = "workout",cascade = CascadeType.ALL)
-    private Set<Exercise> exercises = new HashSet<>();
+    @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
+    private final Set<Exercise> exercises = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "user_id")

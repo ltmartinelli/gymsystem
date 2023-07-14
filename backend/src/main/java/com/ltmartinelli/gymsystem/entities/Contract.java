@@ -1,7 +1,6 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -11,8 +10,11 @@ import java.util.Set;
 @Table(name = "tb_contract")
 public class Contract {
 
+    //Contract is an association class, its PK is a Composite Key made of the combination of a User's ID and a Unit's ID.
+    //Each Contract has a collection of payments associated with it.
+
     @EmbeddedId
-    private ContractPK id = new ContractPK();
+    private final ContractPK id = new ContractPK();
 
     private LocalDate startDate;
     private LocalDate endDate;
@@ -23,7 +25,7 @@ public class Contract {
     private Plan plan;
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
-    private Set<Payment> payments = new HashSet<>();
+    private final Set<Payment> payments = new HashSet<>();
 
     public Contract() {
     }

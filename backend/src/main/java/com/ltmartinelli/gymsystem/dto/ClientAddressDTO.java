@@ -1,13 +1,15 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.ClientAddress;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 public class ClientAddressDTO {
 
-    private Long id;
+    //A DTO containing a user's address information
 
+    private Long id;
     @NotBlank(message = "Campo requerido")
     private String state;
     @NotBlank(message = "Campo requerido")
@@ -37,7 +39,7 @@ public class ClientAddressDTO {
     public ClientAddressDTO(ClientAddress entity) {
         id = entity.getId();
         state = entity.getState();
-        city = entity.getCity();;
+        city = entity.getCity();
         street = entity.getStreet();
         number = entity.getNumber();
         zip = entity.getZip();

@@ -1,6 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Exercise;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 

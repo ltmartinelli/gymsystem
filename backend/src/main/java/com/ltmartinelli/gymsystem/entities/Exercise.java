@@ -1,7 +1,6 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.util.Objects;
 
 @Entity
@@ -18,7 +17,7 @@ public class Exercise {
     private Integer weight;
 
     @ManyToOne
-    @JoinColumn(name="workout_id")
+    @JoinColumn(name = "workout_id")
     private Workout workout;
 
     public Exercise() {

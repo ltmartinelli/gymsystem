@@ -1,13 +1,14 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "tb_plan")
 public class Plan {
+
+    //Plans store the price which will be used in the payment's installments.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

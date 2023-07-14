@@ -20,12 +20,14 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    //Returns the Logged user
     @GetMapping(value = "/me")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
-    public ResponseEntity<UserDTO> getMe(){
+    public ResponseEntity<UserDTO> getMe() {
         return ResponseEntity.ok(service.getMe());
     }
 
+    //Allows Admin to search a user by name
     @GetMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Page<UserMinDTO>> searchByName(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) {

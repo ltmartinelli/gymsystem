@@ -2,8 +2,8 @@ package com.ltmartinelli.gymsystem.services;
 
 import com.ltmartinelli.gymsystem.dto.PlanDTO;
 import com.ltmartinelli.gymsystem.entities.Plan;
-import com.ltmartinelli.gymsystem.entities.Unit;
 import com.ltmartinelli.gymsystem.repositories.PlanRepository;
+import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,13 +18,13 @@ public class PlanService {
     private PlanRepository repository;
 
     @Transactional(readOnly = true)
-    public List<PlanDTO> findAll(){
+    public List<PlanDTO> findAll() {
         return repository.findAll().stream().map(plan -> new PlanDTO(plan)).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
     public Plan findById(Long id) {
-        return repository.getReferenceById(id);
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
     }
 
 }

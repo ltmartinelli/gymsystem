@@ -1,6 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.Unit;
+
 import javax.validation.constraints.NotBlank;
 
 public class UnitDTO {
@@ -20,7 +21,7 @@ public class UnitDTO {
         this.address = address;
     }
 
-    public UnitDTO(Unit entity){
+    public UnitDTO(Unit entity) {
         id = entity.getId();
         name = entity.getName();
         address = new UnitAddressDTO(entity.getAddress());

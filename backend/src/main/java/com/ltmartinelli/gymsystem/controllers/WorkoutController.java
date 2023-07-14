@@ -20,6 +20,7 @@ public class WorkoutController {
     @Autowired
     private WorkoutService service;
 
+    //Returns a specific workout and its exercises
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<WorkoutDTO> findById(@PathVariable Long id) {
@@ -27,12 +28,14 @@ public class WorkoutController {
         return ResponseEntity.ok(service.findById(id));
     }
 
+    //Returns all workouts of a specific user
     @GetMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<Page<WorkoutDTO>> findByUser(Pageable pageable) {
         return ResponseEntity.ok().body(service.findByUser(pageable));
     }
 
+    //Allows user to insert a new workout for their profile
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<WorkoutDTO> insert(@Valid @RequestBody WorkoutDTO dto) {
@@ -42,12 +45,14 @@ public class WorkoutController {
         return ResponseEntity.created(uri).body(dto);
     }
 
+    //Allows user to update an existing workout
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<WorkoutDTO> update(@Valid @RequestBody WorkoutDTO dto, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(id, dto));
     }
 
+    //Allows user to delete a specific workout
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

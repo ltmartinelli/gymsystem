@@ -18,17 +18,20 @@ public class ContractController {
     @Autowired
     private ContractService service;
 
+    //Returns a Contract and its payments by Providing the Client's ID
     @GetMapping(value = "/{clientId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     public ResponseEntity<ContractDTO> findByUser(@PathVariable Long clientId) {
         return ResponseEntity.ok(service.findByUser(clientId));
     }
 
+    //Allows Admin to insert a new contract along with its payments into the Database
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<ContractDTO> insert(@Valid @RequestBody ContractDTO dto){
+    public ResponseEntity<ContractDTO> insert(@Valid @RequestBody ContractDTO dto) {
         dto = service.insert(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getClientId().toString()+dto.getUnitId().toString()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getClientId().toString() + dto.getUnitId().toString()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+
 }

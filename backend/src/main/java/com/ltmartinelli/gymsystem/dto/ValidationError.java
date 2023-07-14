@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ValidationError extends CustomError {
 
-    private List<FieldMessage> errors = new ArrayList<>();
+    private final List<FieldMessage> errors = new ArrayList<>();
 
     public ValidationError(Instant timestamp, Integer status, String error, String path) {
         super(timestamp, status, error, path);
@@ -16,7 +16,7 @@ public class ValidationError extends CustomError {
         return errors;
     }
 
-    public void addError(String fieldName, String message){
+    public void addError(String fieldName, String message) {
         errors.add(new FieldMessage(fieldName, message));
     }
 }

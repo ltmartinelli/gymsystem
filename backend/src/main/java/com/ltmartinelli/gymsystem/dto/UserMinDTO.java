@@ -4,6 +4,8 @@ import com.ltmartinelli.gymsystem.entities.User;
 
 public class UserMinDTO {
 
+    //User DTO with minimal information, used by listing page when searching users by name.
+
     private Long id;
     private String name;
     private String email;

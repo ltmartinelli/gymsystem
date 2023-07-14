@@ -1,6 +1,7 @@
 package com.ltmartinelli.gymsystem.dto;
 
 import com.ltmartinelli.gymsystem.entities.UnitAddress;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 

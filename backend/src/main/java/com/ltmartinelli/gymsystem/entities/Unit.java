@@ -1,7 +1,6 @@
 package com.ltmartinelli.gymsystem.entities;
 
 import javax.persistence.*;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -20,7 +19,7 @@ public class Unit {
     private UnitAddress address;
 
     @OneToMany(mappedBy = "unit")
-    private Set<User> clients = new HashSet<>();
+    private final Set<User> clients = new HashSet<>();
 
 
     public Unit() {

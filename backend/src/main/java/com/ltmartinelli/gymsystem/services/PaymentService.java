@@ -2,7 +2,6 @@ package com.ltmartinelli.gymsystem.services;
 
 import com.ltmartinelli.gymsystem.dto.PaymentDTO;
 import com.ltmartinelli.gymsystem.entities.Payment;
-import com.ltmartinelli.gymsystem.entities.Workout;
 import com.ltmartinelli.gymsystem.repositories.PaymentRepository;
 import com.ltmartinelli.gymsystem.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -16,8 +17,9 @@ public class PlanController {
     @Autowired
     private PlanService service;
 
+    //Returns all existing Plans and their details
     @GetMapping
-    public ResponseEntity<List<PlanDTO>> findAll(){
+    public ResponseEntity<List<PlanDTO>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
     }
 }
