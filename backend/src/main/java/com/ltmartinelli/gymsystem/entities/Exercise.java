@@ -16,7 +16,7 @@ public class Exercise {
     private Integer reps;
     private Integer weight;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "workout_id")
     private Workout workout;
 

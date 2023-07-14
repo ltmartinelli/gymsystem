@@ -15,7 +15,7 @@ public class Unit {
 
     private String name;
 
-    @OneToOne(mappedBy = "unit", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "unit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UnitAddress address;
 
     @OneToMany(mappedBy = "unit")

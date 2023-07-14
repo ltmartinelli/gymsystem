@@ -1,16 +1,12 @@
 package com.ltmartinelli.gymsystem.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_client_address")
 public class ClientAddress extends Address {
 
-    @OneToOne
-    @MapsId
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
     private User client;
 
     public ClientAddress() {

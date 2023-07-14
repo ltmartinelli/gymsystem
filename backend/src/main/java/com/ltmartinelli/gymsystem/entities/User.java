@@ -23,10 +23,11 @@ public class User implements UserDetails {
     private String phone;
     private LocalDate birthDate;
 
-    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+    @MapsId
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ClientAddress address;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "unit_id")
     private Unit unit;
 

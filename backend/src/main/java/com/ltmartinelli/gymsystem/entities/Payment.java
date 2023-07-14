@@ -25,7 +25,7 @@ public class Payment {
 
     private Double price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
             @JoinColumn(name = "client_id", referencedColumnName = "client_id"),
             @JoinColumn(name = "unit_id", referencedColumnName = "unit_id")

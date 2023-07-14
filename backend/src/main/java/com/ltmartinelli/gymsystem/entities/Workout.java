@@ -18,7 +18,7 @@ public class Workout {
     @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
     private final Set<Exercise> exercises = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

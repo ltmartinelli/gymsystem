@@ -20,7 +20,7 @@ public class Contract {
     private LocalDate endDate;
     private Double installmentPrice;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plan_id")
     private Plan plan;
 

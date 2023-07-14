@@ -1,15 +1,12 @@
 package com.ltmartinelli.gymsystem.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_unit_address")
 public class UnitAddress extends Address {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     private Unit unit;
 
