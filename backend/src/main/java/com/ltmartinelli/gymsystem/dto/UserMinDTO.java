@@ -9,23 +9,23 @@ public class UserMinDTO {
     private Long id;
     private String name;
     private String email;
-    private UnitDTO unit;
+    private String unitName;
 
     public UserMinDTO() {
     }
 
-    public UserMinDTO(Long id, String name, String email, UnitDTO unit) {
+    public UserMinDTO(Long id, String name, String email, String unitName) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.unit = unit;
+        this.unitName = unitName;
     }
 
     public UserMinDTO(User entity) {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();
-        unit = new UnitDTO(entity.getUnit());
+        unitName = entity.getUnit().getName();
     }
 
     public Long getId() {
@@ -52,12 +52,12 @@ public class UserMinDTO {
         this.email = email;
     }
 
-    public UnitDTO getUnit() {
-        return unit;
+    public String getUnitName() {
+        return unitName;
     }
 
-    public void setUnit(UnitDTO unit) {
-        this.unit = unit;
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
     }
 }
 
