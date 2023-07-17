@@ -1,5 +1,5 @@
 # GYM SYSTEM
-[![NPM]()
+
 ## Sobre o Projeto
 Gym System é uma aplicação Back-End construída como projeto pessoal de estudo.
 
