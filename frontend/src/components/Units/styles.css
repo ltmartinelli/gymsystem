@@ -1,0 +1,20 @@
+.gs-section-units {
+    background-color: var(--bg-color-primary);
+    color: var(--font-color-primary);
+    padding: 3rem;
+    text-align: center;
+}
+
+.gs-section-units-title {
+    font-size: 2.5rem;
+}
+
+.gs-units-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+    background-color: var(--bg-color-secondary);
+    border-radius: 1rem;
+}
