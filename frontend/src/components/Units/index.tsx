@@ -1,23 +1,20 @@
+import { useEffect, useState } from 'react'
 import { UnitDTO } from '../../models/unit'
 import UnitCard from '../UnitCard'
 import './styles.css'
+import axios from 'axios'
 
 export default function Units()
 {
 
-    const mockUnit: UnitDTO = {
-        id: 1,
-        name: "PowerGym Porto Alegre",
-        address: {
-            id: 1,
-            state: "RS",
-            city: "Porto Alegre",
-            street: "Rua Borges de Medeiros",
-            number: 200,
-            zip: "90020-025",
-            unitId: 1
-        }
-    }
+    const [units, setUnits] = useState<UnitDTO[]>([])
+
+    useEffect(() =>
+    {
+        axios.get("http://localhost:8080/units").then(response => setUnits(response.data))
+    },
+        []
+    )
 
     return (
         <section className="gs-section-units">
@@ -25,10 +22,11 @@ export default function Units()
             <h1 className='gs-section-units-title'> Unidades</h1>
 
             <div className='gs-units-container'>
-                <UnitCard unit={mockUnit}/>
-                <UnitCard unit={mockUnit}/>
-                <UnitCard unit={mockUnit}/>
-                <UnitCard unit={mockUnit}/>
+                {
+                    units.map(unit =>
+                        <UnitCard key={unit.id} unit={unit} />
+                    )
+                }
             </div>
 
         </section>

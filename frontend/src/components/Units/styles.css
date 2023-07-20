@@ -3,6 +3,9 @@
     color: var(--font-color-primary);
     padding: 3rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .gs-section-units-title {
@@ -11,7 +14,7 @@
 
 .gs-units-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     margin-top: 1rem;
     padding: 2rem;
