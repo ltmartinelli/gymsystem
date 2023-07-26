@@ -1,3 +1,4 @@
+import Plans from "../../../../components/Plans";
 import Units from "../../../../components/Units";
 
 
@@ -8,9 +9,7 @@ export default function HomePage()
             
             <Units/>
 
-            <section className="gs-section-plans">
-
-            </section>
+            <Plans/>
             
         </main>
     )
