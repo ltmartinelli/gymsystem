@@ -32,11 +32,14 @@ function App()
           <Route path='/' element={<ClientHome />}>
             <Route index element={<HomePage />} />
             <Route path="login" element={<Login />} />
+            <Route path="/workouts/" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><h1>Workouts</h1></PrivateRoute>}/>
           </Route>
 
           <Route path="/admin/" element={<PrivateRoute roles={['ROLE_ADMIN']}><h1>Admin</h1></PrivateRoute>}>
 
           </Route>
+
+          
 
           <Route path="*" element={<Navigate to="/" />} />
 
