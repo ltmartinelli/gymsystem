@@ -28,6 +28,24 @@ a:hover {
   background-color: var(--bg-color-secondary);
 }
 
+
+.gs-logged-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gs-logged-user p {
+  font-size: 12px;
+}
+
+.gs-logged-user span {
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
 /*BUTTON STYLES*/
 
 
@@ -110,4 +128,6 @@ a:hover {
   font-size: 12px;
   border-radius: 5px;
   color: red;
+  background-color: #fff;
+  margin-bottom: 1rem;
 }
