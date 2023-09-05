@@ -1,0 +1,36 @@
+.gs-workout-card {
+    background-color: var(--bg-color-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gs-workout-card h1 {
+    color: var(--font-color-primary);
+}
+
+.gs-workout-table {
+    text-align: center;
+    background-color: var(--bg-color-secondary);
+    max-width: 1280px;
+    min-width: 720px;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.gs-workout-table thead {
+    height: 55px;
+    font-size: 1.5rem;
+    color: var(--font-color-primary)
+}
+
+.gs-workout-table tbody {
+    background-color: white;
+    font-weight: 700;
+    color: var(--font-color-secondary)
+}
+
+.gs-workout-table td{
+    height: 2rem;
+}
