@@ -3,6 +3,7 @@ import './styles.css'
 import { ContextToken } from '../../utils/context-token';
 import { Link } from 'react-router-dom';
 import LoggedUser from '../LoggedUser';
+import * as authService from '../../services/auth-service.ts'
 
 export default function ClientHeader()
 {
@@ -14,6 +15,14 @@ export default function ClientHeader()
             <Link to='/'>
                 <h1 className='gs-header-title'>GymSystem</h1>
             </Link>
+            {
+                contextTokenPayload && authService.isAuthenticated() ?
+                <Link to='/workouts'>
+                    <h1>Treinos</h1>
+                </Link>
+                :
+                <></>
+            }
             <LoggedUser/>
         </header>
     )
