@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { AccessTokenPayloadDTO } from './models/auth.ts';
 import { PrivateRoute } from './components/PrivateRoute/index.tsx';
 import Workouts from './routes/Client/ClientHome/Workouts/index.tsx';
+import Me from './routes/Client/ClientHome/Me/index.tsx';
 
 function App()
 {
@@ -33,9 +34,10 @@ function App()
           <Route path='/' element={<ClientHome />}>
             <Route index element={<HomePage />} />
             <Route path="login" element={<Login />} />
-            <Route path="/workouts/" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Workouts/></PrivateRoute>}/>
+            <Route path="workouts/" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Workouts/></PrivateRoute>}/>
+            <Route path="me" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Me/></PrivateRoute>}/>
           </Route>
-
+          
           <Route path="/admin/" element={<PrivateRoute roles={['ROLE_ADMIN']}><h1>Admin</h1></PrivateRoute>}>
 
           </Route>
