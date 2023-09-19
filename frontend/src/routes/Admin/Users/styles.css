@@ -14,6 +14,7 @@
     max-width: 1280px;
     min-width: 720px;
     padding: 0 1rem 1rem 1rem;
+    margin-bottom: 1rem;
 }
 
 .gs-users-table thead {
