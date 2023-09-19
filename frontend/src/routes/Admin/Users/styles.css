@@ -1,0 +1,33 @@
+.gs-users-section{
+    background-color: var(--bg-color-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.gs-users-table {
+    text-align: center;
+    background-color: var(--bg-color-secondary);
+    max-width: 1280px;
+    min-width: 720px;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.gs-users-table thead {
+    height: 55px;
+    font-size: 1.5rem;
+    color: var(--font-color-primary)
+}
+
+.gs-users-table tbody {
+    background-color: white;
+    font-weight: 700;
+    color: var(--font-color-secondary)
+}
+
+.gs-users-table td{
+    height: 2rem;
+}
