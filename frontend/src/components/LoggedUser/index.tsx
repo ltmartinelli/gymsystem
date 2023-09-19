@@ -20,6 +20,9 @@ export default function LoggedUser()
             (
                 <div className="gs-logged-user">
                     <p>{contextTokenPayload.user_name}</p>
+                    <Link to='/me'>
+                        <h2>Meu Perfil</h2>
+                    </Link>
                     <span onClick={handleLogoutClick}>Sair</span>
                 </div>
             )

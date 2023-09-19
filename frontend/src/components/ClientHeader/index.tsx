@@ -17,7 +17,7 @@ export default function ClientHeader()
             </Link>
             {
                 contextTokenPayload && authService.isAuthenticated() ?
-                <Link to='/workouts'>
+                <Link to='/workouts/'>
                     <h1>Treinos</h1>
                 </Link>
                 :
