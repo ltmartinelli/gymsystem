@@ -66,6 +66,8 @@ a:hover {
   background-color: var(--bg-color-primary);
   border: none;
   color: white;
+  max-width: 360px;
+  margin: 1rem
 }
 
 /*FORM STYLES*/
@@ -175,22 +177,24 @@ a:hover {
 
 .gs-dialog-btn-yes {
   width: 100%;
-  padding:.5rem;
+  padding: .5rem;
   background-color: var(--bg-color-secondary);
   border: none;
   border-radius: .2rem;
   height: 2rem;
   color: #fff;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .gs-dialog-btn-no {
   width: 100%;
-  padding:.5rem;
+  padding: .5rem;
   background-color: var(--font-color-primary);
   border: none;
   border-radius: .2rem;
   height: 2rem;
   color: var(--font-color-secondary);
   font-weight: 700;
+  cursor: pointer;
 }

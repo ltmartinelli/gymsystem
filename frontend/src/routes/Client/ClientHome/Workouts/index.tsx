@@ -4,10 +4,13 @@ import './styles.css'
 import { WorkoutDTO } from '../../../../models/workout';
 import { findWorkoutsByUser, deleteById } from '../../../../services/workout-service';
 import DialogConfirmation from '../../../../components/DialogConfirmation';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Workouts()
 {
+
+    const navigate = useNavigate();
 
     const [workouts, setWorkouts] = useState<WorkoutDTO[]>([]);
 
@@ -44,14 +47,25 @@ export default function Workouts()
         setDialogConfirmationData({ ...dialogConfirmationData, visible: true, id: workoutId });
     }
 
+    function handleUpdateClick(workoutId: number)
+    {
+        navigate(`/workouts/${workoutId}`)
+    }
+
+    function handleNewWorkoutClick()
+    {
+        navigate(`/workouts/create}`)
+    }
+
     return (
         <main className="gs-container">
             <section className="gs-workouts-section">
                 <h1 className='gs-workouts-section-title'>MEUS TREINOS</h1>
+                <button onClick={handleNewWorkoutClick}  className='gs-btn gs-btn-blue'>Novo Treino</button>
                 <div className='gs-workouts-cards-container'>
                     {
                         workouts.map(workout => (
-                            <WorkoutCard key={workout.id} workout={workout} onDeleteClick={handleDeleteClick} />
+                            <WorkoutCard key={workout.id} workout={workout} onDeleteClick={handleDeleteClick} onEditClick={handleUpdateClick}/>
                         )
                         )
                     }
