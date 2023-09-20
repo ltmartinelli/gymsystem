@@ -131,3 +131,64 @@ a:hover {
   background-color: #fff;
   margin-bottom: 1rem;
 }
+
+/*-----------------------------------------------------------------*/
+/* dialog styles */
+
+.gs-dialog-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+
+.gs-dialog-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color-primary);
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+.gs-dialog-box h2 {
+  font-size: 20px;
+  color: var(--font-color-primary);
+  margin-bottom: 20px;
+}
+
+.gs-dialog-btn-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.gs-dialog-btn-yes {
+  width: 100%;
+  background-color: var(--bg-color-secondary);
+  border: none;
+  border-radius: .2rem;
+  height: 2rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.gs-dialog-btn-no {
+  width: 100%;
+  background-color: var(--font-color-primary);
+  border: none;
+  border-radius: .2rem;
+  height: 2rem;
+  color: var(--font-color-secondary);
+  font-weight: 700;
+}
