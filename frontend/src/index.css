@@ -175,6 +175,7 @@ a:hover {
 
 .gs-dialog-btn-yes {
   width: 100%;
+  padding:.5rem;
   background-color: var(--bg-color-secondary);
   border: none;
   border-radius: .2rem;
@@ -185,6 +186,7 @@ a:hover {
 
 .gs-dialog-btn-no {
   width: 100%;
+  padding:.5rem;
   background-color: var(--font-color-primary);
   border: none;
   border-radius: .2rem;

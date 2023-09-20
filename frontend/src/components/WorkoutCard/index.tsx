@@ -3,9 +3,10 @@ import './styles.css'
 
 type Props = {
     workout: WorkoutDTO
+    onDeleteClick: (workoutId: number) => void
 }
 
-export default function WorkoutCard({ workout }: Props)
+export default function WorkoutCard({ workout, onDeleteClick }: Props)
 {
     return (
         <div className="gs-workout-card">
@@ -35,6 +36,10 @@ export default function WorkoutCard({ workout }: Props)
 
                 </tbody>
             </table>
+            <div className='gs-workout-card-btn-container'>
+                <button onClick={() => onDeleteClick(workout.id)} className='gs-dialog-btn-no'>DELETAR</button>
+                <button className='gs-dialog-btn-yes'>EDITAR</button>
+            </div>
         </div>
     );
 }

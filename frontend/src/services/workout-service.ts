@@ -11,3 +11,14 @@ export function findWorkoutsByUser()
 
     return requestBackEnd(config);
 }
+
+export function deleteById(id: number)
+{
+    const config: AxiosRequestConfig = {
+        method: "DELETE",
+        url: `/workouts/${id}`,
+        withCredentials: true,
+    }
+
+    return requestBackEnd(config);
+}
