@@ -21,7 +21,7 @@ export default function Workouts()
     return (
         <main className="gs-container">
             <section className="gs-workouts-section">
-                <h1>MEUS TREINOS</h1>
+                <h1 className='gs-workouts-section-title'>MEUS TREINOS</h1>
                 <div className='gs-workouts-cards-container'>
                     {                        
                         workouts.map(workout => (

@@ -9,7 +9,7 @@ export default function WorkoutCard({ workout }: Props)
 {
     return (
         <div className="gs-workout-card">
-            <h1> {workout.name} </h1>
+            <h1 className='gs-workout-card-title'> {workout.name} </h1>
             <table className="gs-workout-table">
                 <thead>
                     <tr>
