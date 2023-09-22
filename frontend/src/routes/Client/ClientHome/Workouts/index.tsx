@@ -54,7 +54,7 @@ export default function Workouts()
 
     function handleNewWorkoutClick()
     {
-        navigate(`/workouts/create}`)
+        navigate(`/workouts/create`)
     }
 
     return (

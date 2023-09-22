@@ -12,6 +12,7 @@ import { PrivateRoute } from './components/PrivateRoute/index.tsx';
 import Workouts from './routes/Client/ClientHome/Workouts/index.tsx';
 import Me from './routes/Client/ClientHome/Me/index.tsx';
 import Users from './routes/Admin/Users/index.tsx';
+import WorkoutForm from './routes/Client/ClientHome/WorkoutForm/index.tsx';
 
 function App()
 {
@@ -35,7 +36,8 @@ function App()
           <Route path='/' element={<ClientHome />}>
             <Route index element={<HomePage />} />
             <Route path="login" element={<Login />} />
-            <Route path="workouts/" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Workouts /></PrivateRoute>} />
+            <Route path="workouts" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Workouts /></PrivateRoute>} />
+            <Route path="workouts/:workoutId" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><WorkoutForm/></PrivateRoute>} />
             <Route path="me" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Me /></PrivateRoute>} />
           </Route>
 

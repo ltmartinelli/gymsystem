@@ -70,6 +70,15 @@ a:hover {
   margin: 1rem
 }
 
+.gs-btn-purple {
+  background-color: var(--bg-color-secondary);
+  border: none;
+  color: white;
+  max-width: 360px;
+  margin: 1rem
+}
+
+
 /*FORM STYLES*/
 
 .gs-form {
