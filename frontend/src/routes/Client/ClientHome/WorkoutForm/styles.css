@@ -1,11 +1,11 @@
 .gs-workout-form-section {
     background-color: var(--bg-color-primary);
     border-radius: 1rem;
-    color: var(--font-color-primary);
 }
 
-.gs-workout-form-section h1 {
+.gs-workout-form-section h1, h3 {
     margin-bottom: 1rem;
+    color: var(--font-color-primary);
 }
 .gs-workout-form-card {
     display: flex;
@@ -13,6 +13,7 @@
 }
 
 .gs-workout-form-card-titles {
+    color: var(--font-color-primary);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
@@ -23,6 +24,7 @@
     display: grid;
     gap: .5rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: .5rem;
 }
 
 .gs-workout-form-card-save {
