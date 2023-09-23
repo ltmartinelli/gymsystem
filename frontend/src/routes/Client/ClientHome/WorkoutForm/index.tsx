@@ -14,7 +14,9 @@ export default function WorkoutForm()
 
     const isEditing = params.productId !== 'create';
 
-    const [exercise, setExercise] = useState<any>({ name: "", sets: "", reps: "", weight: "" })
+    const [workout, setWorkout] = useState<ExerciseDTO[]>([]);
+
+    const [exercise, setExercise] = useState<ExerciseDTO>({ name: "", sets: 0, reps: 0, weight: 0})
 
     const [formData, setFormData] = useState<any>({
         name: {
@@ -73,9 +75,7 @@ export default function WorkoutForm()
 
         const requestBody = forms.toValues(formData);
 
-        console.log(requestBody)
-
-        //if (isEditing) { requestBody.id = params.productId; }
+        if (isEditing) { requestBody.id = params.productId; }
 
 
         /*
@@ -94,22 +94,27 @@ export default function WorkoutForm()
             */
     }
 
-    function handleAddExercise() {
+    function handleAddExercise()
+    {
 
         const updatedExercises = [...formData.exercises.value];
-      
+        const updatedWorkout = [...workout];
+
         updatedExercises.push(exercise);
-      
+        updatedWorkout.push(exercise);
+        
+        setWorkout(updatedWorkout)
+
         setFormData({
-          ...formData,
-          exercises: {
-            ...formData.exercises,
-            value: updatedExercises,
-          },
+            ...formData,
+            exercises: {
+                ...formData.exercises,
+                value: updatedExercises,
+            },
         });
 
-        console.log(formData)
-      }
+        console.log(workout)
+    }
 
     return (
 
@@ -135,6 +140,31 @@ export default function WorkoutForm()
                                 <button onClick={handleAddExercise} className="gs-btn gs-btn-purple" type="button">ADICIONAR EXERCÍCIO</button>
                             </div>
                         </div>
+
+                        <table className="gs-workout-table">
+                            <thead>
+                                <tr>
+                                    <th>Exercício</th>
+                                    <th>Sets</th>
+                                    <th>Repetições</th>
+                                    <th>Carga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {
+                                    workout.map((e, index )=>
+                                        <tr key={index}>
+                                            <td>{e.name}</td>
+                                            <td>{e.sets}</td>
+                                            <td>{e.reps}</td>
+                                            <td>{e.weight}</td>
+                                        </tr>
+                                    )
+                                }
+
+                            </tbody>
+                        </table>
 
                         <div className="gs-workout-form-card-save">
                             <h3>NOME DO TREINO:</h3>
