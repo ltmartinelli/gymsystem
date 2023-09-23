@@ -4,6 +4,7 @@ import './styles.css'
 import { ExerciseDTO } from "../../../../models/exercise";
 import { useState } from "react";
 import *  as forms from '../../../../utils/forms.ts'
+import * as workoutService from '../../../../services/workout-service.ts'
 
 export default function WorkoutForm()
 {
@@ -12,7 +13,7 @@ export default function WorkoutForm()
 
     const navigate = useNavigate();
 
-    const isEditing = params.productId !== 'create';
+    const isEditing = params.workoutId !== 'create';
 
     const [workout, setWorkout] = useState<ExerciseDTO[]>([]);
 
@@ -75,23 +76,21 @@ export default function WorkoutForm()
 
         const requestBody = forms.toValues(formData);
 
-        if (isEditing) { requestBody.id = params.productId; }
-
-
-        /*
+        if (!isEditing) { requestBody.id = params.productId; }
+        
         const request = isEditing ?
-            productService.updateRequest(requestBody)
+            workoutService.updateRequest(requestBody)
             :
-            productService.insertRequest(requestBody)
-    
+            workoutService.insertRequest(requestBody)
+        
         request
-            .then(() => { navigate("/admin/products") })
+            .then(() => { navigate("/workouts") })
             .catch(error =>
             {
                 const newInputs = forms.setBackendErrors(formData, error.response.data.errors);
                 setFormData(newInputs);
             })
-            */
+           
     }
 
     function handleAddExercise()
@@ -121,7 +120,7 @@ export default function WorkoutForm()
         <main className="gs-container">
             <section className="gs-workout-form-section">
                 <form className="gs-form" onSubmit={handleSubmit}>
-                    {isEditing ? <h1>NOVO TREINO</h1> : <h1>EDITAR</h1>}
+                    {!isEditing ? <h1>NOVO TREINO</h1> : <h1>EDITAR</h1>}
                     <div className="gs-workout-form-card">
 
                         <div className="gs-workout-form-card-titles">
