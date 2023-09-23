@@ -94,10 +94,22 @@ export default function WorkoutForm()
             */
     }
 
-    function handleAddExercise()
-    {
-        console.log(exercise)
-    }
+    function handleAddExercise() {
+
+        const updatedExercises = [...formData.exercises.value];
+      
+        updatedExercises.push(exercise);
+      
+        setFormData({
+          ...formData,
+          exercises: {
+            ...formData.exercises,
+            value: updatedExercises,
+          },
+        });
+
+        console.log(formData)
+      }
 
     return (
 
