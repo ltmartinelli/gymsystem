@@ -14,7 +14,7 @@ export default function WorkoutForm()
 
     const isEditing = params.productId !== 'create';
 
-    const [exerciseInputs, setExerciseInputs] = useState(1);
+    const [exercise, setExercise] = useState<any>({ name: "", sets: "", reps: "", weight: "" })
 
     const [formData, setFormData] = useState<any>({
         name: {
@@ -51,56 +51,39 @@ export default function WorkoutForm()
         setFormData(newFormData);
     }
 
-    function ExerciseInput()
+
+    function handleExerciseChange(event: any)
     {
-        return (
-            <div className="gs-workout-form-card-exercise">
-                <FormInput className="gs-form-control" />
-                <FormInput className="gs-form-control" />
-                <FormInput className="gs-form-control" />
-                <FormInput className="gs-form-control" />
-            </div>
-        )
+        const name = event.target.name;
+        const value = event.target.value;
+        setExercise({ ...exercise, [name]: value })
     }
 
-    function handleNewExerciseClick()
+    function handleExerciseTurnDirty(name: string)
     {
-        setExerciseInputs(exerciseInputs + 1)
+        //EXERCISE VALIDATION
     }
 
-    const getAppendedExercises = () =>
-    {
-        const appendedExercises = [];
-        for (let i = 0; i < exerciseInputs; i++)
-        {
-            appendedExercises.push(
-                <ExerciseInput key={i} />
-            )
-        }
-        return appendedExercises;
-    }
 
     function handleSubmit(event: any)
     {
-        event.preventDefault();
 
-        const formDataValidated = forms.dirtyAndValidateAll(formData);
-        if (forms.hasAnyInvalid(formDataValidated))
-        {
-            setFormData(formDataValidated);
-            return;
-        }
+
+        event.preventDefault();
 
         const requestBody = forms.toValues(formData);
 
-        if (isEditing) { requestBody.id = params.productId; }
+        console.log(requestBody)
+
+        //if (isEditing) { requestBody.id = params.productId; }
+
 
         /*
         const request = isEditing ?
             productService.updateRequest(requestBody)
             :
             productService.insertRequest(requestBody)
-
+    
         request
             .then(() => { navigate("/admin/products") })
             .catch(error =>
@@ -109,6 +92,11 @@ export default function WorkoutForm()
                 setFormData(newInputs);
             })
             */
+    }
+
+    function handleAddExercise()
+    {
+        console.log(exercise)
     }
 
     return (
@@ -127,10 +115,14 @@ export default function WorkoutForm()
                         </div>
 
                         <div className="gs-workout-form-card-exercises-list">
-                            {getAppendedExercises()}
+                            <div className="gs-workout-form-card-exercise">
+                                <FormInput name="name" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
+                                <FormInput name="sets" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
+                                <FormInput name="reps" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
+                                <FormInput name="weight" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
+                                <button onClick={handleAddExercise} className="gs-btn gs-btn-purple" type="button">ADICIONAR EXERCÍCIO</button>
+                            </div>
                         </div>
-
-                        <button className="gs-btn gs-btn-purple" type="button" onClick={handleNewExerciseClick}>ADICIONAR EXERCÍCIO</button>
 
                         <div className="gs-workout-form-card-save">
                             <h3>NOME DO TREINO:</h3>
@@ -140,7 +132,7 @@ export default function WorkoutForm()
                                 onTurnDirty={handleTurnDirty}
                                 onChange={handleInputChange}
                             />
-                            <button type='submit' className="gs-btn gs-btn-purple">SALVAR TREINO</button>
+                            <button type="submit" className="gs-btn gs-btn-purple">SALVAR TREINO</button>
                         </div>
 
                     </div>
