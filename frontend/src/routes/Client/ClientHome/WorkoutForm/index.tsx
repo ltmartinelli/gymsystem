@@ -17,7 +17,7 @@ export default function WorkoutForm()
 
     const [workout, setWorkout] = useState<ExerciseDTO[]>([]);
 
-    const [exercise, setExercise] = useState<ExerciseDTO>({ name: "", sets: 0, reps: 0, weight: 0})
+    const [exercise, setExercise] = useState<ExerciseDTO>({ name: "", sets: 0, reps: 0, weight: 0 })
 
     const [formData, setFormData] = useState<any>({
         name: {
@@ -77,12 +77,12 @@ export default function WorkoutForm()
         const requestBody = forms.toValues(formData);
 
         if (!isEditing) { requestBody.id = params.productId; }
-        
+
         const request = isEditing ?
             workoutService.updateRequest(requestBody)
             :
             workoutService.insertRequest(requestBody)
-        
+
         request
             .then(() => { navigate("/workouts") })
             .catch(error =>
@@ -90,7 +90,7 @@ export default function WorkoutForm()
                 const newInputs = forms.setBackendErrors(formData, error.response.data.errors);
                 setFormData(newInputs);
             })
-           
+
     }
 
     function handleAddExercise()
@@ -101,7 +101,7 @@ export default function WorkoutForm()
 
         updatedExercises.push(exercise);
         updatedWorkout.push(exercise);
-        
+
         setWorkout(updatedWorkout)
 
         setFormData({
@@ -112,7 +112,35 @@ export default function WorkoutForm()
             },
         });
 
-        console.log(workout)
+    }
+
+    type Props = {
+        exerciseIndex: number,
+        onDeleteExerciseClick: (exerciseIndex: number) => void
+    }
+
+    function DeleteButton({ exerciseIndex, onDeleteExerciseClick }: Props)
+    {
+        return (<td onClick={() => onDeleteExerciseClick(exerciseIndex)} className="gs-delete-btn">X</td>);
+    }
+
+    function handleDeleteExerciseClick(index: number)
+    {
+        const updatedExercises = [...formData.exercises.value];
+        const updatedWorkout = [...workout];
+
+        updatedExercises.splice(index,1);
+        updatedWorkout.splice(index,1);
+
+        setWorkout(updatedWorkout)
+
+        setFormData({
+            ...formData,
+            exercises: {
+                ...formData.exercises,
+                value: updatedExercises,
+            },
+        });
     }
 
     return (
@@ -152,12 +180,13 @@ export default function WorkoutForm()
                             <tbody>
 
                                 {
-                                    workout.map((e, index )=>
+                                    workout.map((e, index) =>
                                         <tr key={index}>
                                             <td>{e.name}</td>
                                             <td>{e.sets}</td>
                                             <td>{e.reps}</td>
-                                            <td>{e.weight}</td>
+                                            <td>{e.weight} kg</td>
+                                            <DeleteButton exerciseIndex={index} onDeleteExerciseClick={handleDeleteExerciseClick} />
                                         </tr>
                                     )
                                 }

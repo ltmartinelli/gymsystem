@@ -35,3 +35,14 @@
     grid-template-columns: 1fr 2fr 1fr;
     gap: 1rem;
 }
+
+.gs-delete-btn{
+    display: flex;
+    background-color: var(--bg-color-primary);
+    width:100%;
+    height:100%;
+    color: var(--font-color-primary);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
