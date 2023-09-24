@@ -23,6 +23,14 @@ export default function ClientHeader()
                 :
                 <></>
             }
+            {
+                contextTokenPayload && authService.isAuthenticated() && authService.hasAnyRoles(["ROLE_ADMIN"]) ?
+                <Link to='/admin/users'>
+                    <h1>Usuários</h1>
+                </Link>
+                :
+                <></>
+            }
             <LoggedUser/>
         </header>
     )

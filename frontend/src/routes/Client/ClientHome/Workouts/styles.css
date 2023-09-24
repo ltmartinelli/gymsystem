@@ -1,12 +1,13 @@
-.gs-workouts-section-title{
+.gs-workouts-section-title {
     font-weight: 700;
     color: var(--font-color-secondary);
     text-align: center;
     margin-bottom: 1rem;
 }
 
-.gs-workouts-cards-container{
+.gs-workouts-cards-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin: 1rem 0
 }
