@@ -13,6 +13,17 @@ export function findWorkoutsByUser()
     return requestBackEnd(config);
 }
 
+export function findById(id: number)
+{
+    const config: AxiosRequestConfig = {
+        method: "GET",
+        url: `/workouts/${id}`,
+        withCredentials: true
+    }
+
+    return requestBackEnd(config);
+}
+
 export function insertRequest(obj: WorkoutDTO)
 {
     const config: AxiosRequestConfig = {

@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import FormInput from "../../../../components/FormInput";
 import './styles.css'
 import { ExerciseDTO } from "../../../../models/exercise";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import *  as forms from '../../../../utils/forms.ts'
 import * as workoutService from '../../../../services/workout-service.ts'
 
@@ -38,6 +38,19 @@ export default function WorkoutForm()
             message: "Favor criar ao menos um exercício para este treino."
         }
     })
+
+    useEffect(() =>
+    {
+        if (isEditing)
+        {
+            workoutService.findById(Number(params.workoutId))
+                .then(response =>
+                {
+                    setFormData(forms.updateAll(formData, response.data));
+                    setWorkout(response.data.exercises)
+                });
+        }
+    }, [])
 
     function handleInputChange(event: any)
     {
@@ -76,7 +89,7 @@ export default function WorkoutForm()
 
         const requestBody = forms.toValues(formData);
 
-        if (!isEditing) { requestBody.id = params.productId; }
+        if (isEditing) { requestBody.id = params.workoutId; }
 
         const request = isEditing ?
             workoutService.updateRequest(requestBody)
@@ -129,8 +142,8 @@ export default function WorkoutForm()
         const updatedExercises = [...formData.exercises.value];
         const updatedWorkout = [...workout];
 
-        updatedExercises.splice(index,1);
-        updatedWorkout.splice(index,1);
+        updatedExercises.splice(index, 1);
+        updatedWorkout.splice(index, 1);
 
         setWorkout(updatedWorkout)
 
