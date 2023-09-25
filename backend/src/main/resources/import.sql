@@ -85,8 +85,8 @@ INSERT INTO tb_unit_address (state, city, zip, street, number, unit_id) VALUES (
 INSERT INTO tb_unit_address (state, city, zip, street, number, unit_id) VALUES ('RS', 'Canoas', '92310-190', 'Rua Domingos Martins', 1023, 3)
 
 INSERT INTO tb_plan (name, price, description) VALUES ('Bronze', 50.00, 'Plano Básico')
-INSERT INTO tb_plan (name, price, description) VALUES ('Silver', 100.00, 'Plano Silver')
-INSERT INTO tb_plan (name, price, description) VALUES ('Gold', 200.00, 'Melhor plano')
+INSERT INTO tb_plan (name, price, description) VALUES ('Silver', 100.00, 'Plano Mais Popular!')
+INSERT INTO tb_plan (name, price, description) VALUES ('Gold', 200.00, 'Melhores benefícios!')
 
 INSERT INTO tb_contract (start_date, end_date, installment_price, client_id, plan_id, unit_id) VALUES ('2024-01-01', '2024-12-31', 200.00, 2, 3, 1)
 

@@ -77,7 +77,17 @@ export default function WorkoutForm()
 
     function handleExerciseTurnDirty(name: string)
     {
-        //EXERCISE VALIDATION
+        if (name === "name")
+        {
+            return;
+        } else if (name === "sets" || name === "reps" || name === "weight")
+        {
+            const value = exercise[name];
+            if (isNaN(value))
+            {
+                console.error(`Invalid value for ${name}: ${value}`);
+            }
+        }
     }
 
 
@@ -173,10 +183,10 @@ export default function WorkoutForm()
 
                         <div className="gs-workout-form-card-exercises-list">
                             <div className="gs-workout-form-card-exercise">
-                                <FormInput name="name" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
-                                <FormInput name="sets" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
-                                <FormInput name="reps" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
-                                <FormInput name="weight" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" />
+                                <FormInput name="name" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" placeholder="Nome" />
+                                <FormInput name="sets" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" placeholder="Digite um número" />
+                                <FormInput name="reps" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" placeholder="Digite um número" />
+                                <FormInput name="weight" onTurnDirty={handleExerciseTurnDirty} onChange={handleExerciseChange} className="gs-form-control" placeholder="Digite um número" />
                                 <button onClick={handleAddExercise} className="gs-btn gs-btn-purple" type="button">ADICIONAR EXERCÍCIO</button>
                             </div>
                         </div>
