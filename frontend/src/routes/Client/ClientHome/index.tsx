@@ -5,7 +5,7 @@ export default function ClientHome()
 {
     return (
         <>
-            <ClientHeader/>
+            <ClientHeader />
             <Outlet />
         </>
     )

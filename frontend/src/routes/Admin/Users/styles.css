@@ -1,4 +1,4 @@
-.gs-users-section{
+.gs-users-section {
     background-color: var(--bg-color-primary);
     padding: 2rem;
     border-radius: 1rem;
@@ -29,6 +29,18 @@
     color: var(--font-color-secondary)
 }
 
-.gs-users-table td{
+.gs-users-table td {
     height: 2rem;
+}
+
+@media(max-width:960px) {
+
+    .gs-tb960 {
+        display: none;
+    }
+
+    .gs-users-table {
+        max-width: 1280px;
+        min-width: 320px;
+    }
 }

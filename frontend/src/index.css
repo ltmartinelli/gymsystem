@@ -205,3 +205,9 @@ a:hover {
   font-weight: 700;
   cursor: pointer;
 }
+
+@media(max-width:960px) {
+  .gs-container {
+    padding: 1rem;
+  }
+}

@@ -4,7 +4,7 @@ import { requestBackEnd } from "../utils/requests";
 export function findPageRequest(page: number, name: string, size = 12, sort = "name")
 {
     const config: AxiosRequestConfig = {
-        withCredentials : true,
+        withCredentials: true,
         method: "GET",
         url: "/users",
         params: {

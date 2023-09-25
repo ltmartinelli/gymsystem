@@ -37,13 +37,13 @@ function App()
             <Route index element={<HomePage />} />
             <Route path="login" element={<Login />} />
             <Route path="workouts" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Workouts /></PrivateRoute>} />
-            <Route path="workouts/:workoutId" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><WorkoutForm/></PrivateRoute>} />
+            <Route path="workouts/:workoutId" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><WorkoutForm /></PrivateRoute>} />
             <Route path="me" element={<PrivateRoute roles={['ROLE_ADMIN', 'ROLE_CLIENT']}><Me /></PrivateRoute>} />
           </Route>
 
           <Route path="/admin/" element={<PrivateRoute roles={['ROLE_ADMIN']}><ClientHome /></PrivateRoute>}>
-            <Route index element={<Navigate to="/admin/users"/>} />
-            <Route path="users/" element={<Users/>} />
+            <Route index element={<Navigate to="/admin/users" />} />
+            <Route path="users/" element={<Users />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />

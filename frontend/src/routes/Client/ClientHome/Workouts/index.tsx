@@ -37,7 +37,7 @@ export default function Workouts()
                 {
                     findWorkoutsByUser().then(response => setWorkouts(response.data.content))
                 })
-                //.catch(error => setDialogInfoData({ visible: true, message: error.response.data.error }));
+            //.catch(error => setDialogInfoData({ visible: true, message: error.response.data.error }));
         }
         setDialogConfirmationData({ ...dialogConfirmationData, visible: false });
     }
@@ -61,11 +61,11 @@ export default function Workouts()
         <main className="gs-container">
             <section className="gs-workouts-section">
                 <h1 className='gs-workouts-section-title'>MEUS TREINOS</h1>
-                <button onClick={handleNewWorkoutClick}  className='gs-btn gs-btn-blue'>Novo Treino</button>
+                <button onClick={handleNewWorkoutClick} className='gs-btn gs-btn-blue'>Novo Treino</button>
                 <div className='gs-workouts-cards-container'>
                     {
                         workouts.map(workout => (
-                            <WorkoutCard key={workout.id} workout={workout} onDeleteClick={handleDeleteClick} onEditClick={handleUpdateClick}/>
+                            <WorkoutCard key={workout.id} workout={workout} onDeleteClick={handleDeleteClick} onEditClick={handleUpdateClick} />
                         )
                         )
                     }

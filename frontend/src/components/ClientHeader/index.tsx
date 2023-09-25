@@ -17,21 +17,21 @@ export default function ClientHeader()
             </Link>
             {
                 contextTokenPayload && authService.isAuthenticated() ?
-                <Link to='/workouts/'>
-                    <h1>Treinos</h1>
-                </Link>
-                :
-                <></>
+                    <Link to='/workouts/'>
+                        <h1>Treinos</h1>
+                    </Link>
+                    :
+                    <></>
             }
             {
                 contextTokenPayload && authService.isAuthenticated() && authService.hasAnyRoles(["ROLE_ADMIN"]) ?
-                <Link to='/admin/users'>
-                    <h1>Usuários</h1>
-                </Link>
-                :
-                <></>
+                    <Link to='/admin/users'>
+                        <h1>Usuários</h1>
+                    </Link>
+                    :
+                    <></>
             }
-            <LoggedUser/>
+            <LoggedUser />
         </header>
     )
 }

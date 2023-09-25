@@ -21,3 +21,11 @@
     background-color: var(--bg-color-secondary);
     border-radius: 1rem;
 }
+
+@media (max-width: 960px) {
+    .gs-units-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}

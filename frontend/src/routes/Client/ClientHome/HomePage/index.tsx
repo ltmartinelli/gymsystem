@@ -6,11 +6,11 @@ export default function HomePage()
 {
     return (
         <main className="gs-container">
-            
-            <Units/>
 
-            <Plans/>
-            
+            <Units />
+
+            <Plans />
+
         </main>
     )
 }

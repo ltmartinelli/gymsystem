@@ -93,8 +93,6 @@ export default function WorkoutForm()
 
     function handleSubmit(event: any)
     {
-
-
         event.preventDefault();
 
         const requestBody = forms.toValues(formData);
@@ -137,12 +135,12 @@ export default function WorkoutForm()
 
     }
 
-    type Props = {
+    type DeleteButtonProps = {
         exerciseIndex: number,
         onDeleteExerciseClick: (exerciseIndex: number) => void
     }
 
-    function DeleteButton({ exerciseIndex, onDeleteExerciseClick }: Props)
+    function DeleteButton({ exerciseIndex, onDeleteExerciseClick }: DeleteButtonProps)
     {
         return (<td onClick={() => onDeleteExerciseClick(exerciseIndex)} className="gs-delete-btn">X</td>);
     }

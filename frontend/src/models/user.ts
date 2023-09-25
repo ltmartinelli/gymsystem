@@ -3,7 +3,7 @@ import { Roles } from "./roles"
 import { UnitDTO } from "./unit"
 
 export type UserDTO = {
-    
+
         id: number,
         name: string,
         email: string,
@@ -12,5 +12,5 @@ export type UserDTO = {
         address: ClientAddressDTO,
         unit: UnitDTO,
         roles: Roles[]
-    
+
 }

@@ -7,3 +7,10 @@
     justify-content: space-between;
     padding: 1rem 5rem;
 }
+
+@media (max-width: 960px) {
+    .gs-header-client {
+        height: 320px;
+        flex-direction: column;
+    }
+}

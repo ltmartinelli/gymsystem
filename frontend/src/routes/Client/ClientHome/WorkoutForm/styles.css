@@ -3,10 +3,12 @@
     border-radius: 1rem;
 }
 
-.gs-workout-form-section h1, h3 {
+.gs-workout-form-section h1,
+h3 {
     margin-bottom: 1rem;
     color: var(--font-color-primary);
 }
+
 .gs-workout-form-card {
     display: flex;
     flex-direction: column;
@@ -36,11 +38,11 @@
     gap: 1rem;
 }
 
-.gs-delete-btn{
+.gs-delete-btn {
     display: flex;
     background-color: var(--bg-color-primary);
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     color: var(--font-color-primary);
     justify-content: center;
     align-items: center;

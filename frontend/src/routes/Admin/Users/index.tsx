@@ -52,8 +52,8 @@ export default function Users()
             <table className="gs-users-table">
                 <thead>
                     <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Unidade</th>
+                    <th className="gs-tb960">E-mail</th>
+                    <th className="gs-tb960">Unidade</th>
                 </thead>
                 <tbody>
                     {
@@ -61,8 +61,8 @@ export default function Users()
                             user =>
                                 <tr key={user.id}>
                                     <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.unitName}</td>
+                                    <td className="gs-tb960">{user.email}</td>
+                                    <td className="gs-tb960">{user.unitName}</td>
                                 </tr>
                         )
                     }

@@ -1,4 +1,4 @@
-export type UserMinDTO ={
+export type UserMinDTO = {
     id: number,
     name: string,
     email: string,

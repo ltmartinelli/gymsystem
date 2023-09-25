@@ -22,13 +22,13 @@ export default function Me()
                 {
                     userData &&
                     <div className="gs-profile-card">
-                    <p><strong>Nome: </strong>{userData.name}</p>
-                    <p><strong>E-Mail: </strong>{userData.email}</p>
-                    <p><strong>Telefone: </strong>{userData.phone}</p>
-                    <p><strong>Data de Nascimento: </strong>{userData.birthDate.replace(/-/g,'/')}</p>
-                    <p><strong>Endereço: </strong>{userData.address.street}, {userData.address.number}, {userData.address.state}</p>
-                    <p><strong>CEP: </strong>{userData.address.zip}</p>
-                    <p><strong>Unidade: </strong>{userData.unit.name}</p>
+                        <p><strong>Nome: </strong>{userData.name}</p>
+                        <p><strong>E-Mail: </strong>{userData.email}</p>
+                        <p><strong>Telefone: </strong>{userData.phone}</p>
+                        <p><strong>Data de Nascimento: </strong>{userData.birthDate.replace(/-/g, '/')}</p>
+                        <p><strong>Endereço: </strong>{userData.address.street}, {userData.address.number}, {userData.address.state}</p>
+                        <p><strong>CEP: </strong>{userData.address.zip}</p>
+                        <p><strong>Unidade: </strong>{userData.unit.name}</p>
                     </div>
                 }
 

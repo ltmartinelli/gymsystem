@@ -33,11 +33,26 @@
     color: var(--font-color-secondary)
 }
 
-.gs-workout-table td{
+.gs-workout-table td {
+    padding: .5rem;
     height: 2rem;
 }
 
-.gs-workout-card-btn-container{
+.gs-workout-card-btn-container {
     display: flex;
     gap: 1rem;
+}
+
+@media(max-width:960px) {
+    .gs-workout-card {
+        padding: 1rem;
+    }
+
+    .gs-workout-table {
+        font-size: .8rem;
+        max-width: 360px;
+        min-width: 180px;
+        padding: 0 .1rem .1rem .1rem;
+        margin-bottom: 1rem;
+    }
 }
