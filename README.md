@@ -1,7 +1,7 @@
 # GYM SYSTEM
 
 ## Sobre o Projeto
-Gym System é uma aplicação Back-End (Front-End em construção) desenvolvida como projeto pessoal de estudo.
+Gym System é uma aplicação desenvolvida como projeto pessoal de estudo.
 
 A aplicação consiste em um protótipo de sistema para uma franquia de academias, onde usuários podem registrar e alterar treinos e exercícios nos seus perfis pessoais, consultar as unidades e planos existentes, bem como detalhes sobre seu contrato e pagamentos associados, quando existentes.
 Administradores podem adicionar contratos e pagamentos para os clientes, alterar estado dos pagamentos, dentre outras operações.
