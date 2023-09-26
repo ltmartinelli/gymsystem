@@ -58,6 +58,24 @@ mvn spring-boot:run
 As requisições podem ser testadas com o software Postman, importando a seguinte coleção de requisições, bem como as variáveis de ambiente. O ambiente disponibilizado já permite que se utilize a requisição de autenticação para logar como um usuário administrador. 
 - Arquivos para importar as requisições e ambiente: [DOWNLOAD](https://drive.google.com/drive/folders/1F9iqUWd9Ur4ZauAgsMx7FdFghpbGIUt7?usp=drive_link)
 
+## Front end
+Pré-requisitos: npm / yarn
+
+```bash
+# clonar repositório
+git clone https://github.com/ltmartinelli/gymsystem
+
+# entrar na pasta do projeto front end
+cd gymsystem/frontend
+
+# instalar dependências
+yarn
+
+# executar o projeto
+yarn dev
+```
+
+
 # Autor
 
 Lucas Trindade Martinelli
