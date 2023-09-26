@@ -29,7 +29,7 @@ Alguns dos casos de uso do sistema incluem:
 
 **Aplicação em Produção:** [https://ltm-gymsystem.netlify.app/](https://ltm-gymsystem.netlify.app/)
 
-Perfil de Administrador para testes:
+Perfil de Administrador para testar funcionalidades do front-end:
 - Usuário:``fernando@outlook.com``
 - Senha:``12345678``
 
