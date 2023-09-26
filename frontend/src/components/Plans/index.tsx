@@ -3,6 +3,7 @@ import './styles.css'
 import axios from 'axios'
 import PlanCard from '../PlanCard'
 import { PlanDTO } from '../../models/plan'
+import { BASE_URL } from '../../utils/system'
 
 export default function Plans()
 {
@@ -11,7 +12,7 @@ export default function Plans()
 
     useEffect(() =>
     {
-        axios.get("http://localhost:8080/plans").then(response => setPlans(response.data))
+        axios.get(`${BASE_URL}/plans`).then(response => setPlans(response.data))
     },
         []
     )

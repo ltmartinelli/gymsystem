@@ -3,6 +3,7 @@ import { UnitDTO } from '../../models/unit'
 import UnitCard from '../UnitCard'
 import './styles.css'
 import axios from 'axios'
+import { BASE_URL } from '../../utils/system'
 
 export default function Units()
 {
@@ -11,7 +12,7 @@ export default function Units()
 
     useEffect(() =>
     {
-        axios.get("http://localhost:8080/units").then(response => setUnits(response.data))
+        axios.get(`${BASE_URL}/units`).then(response => setUnits(response.data))
     },
         []
     )
