@@ -44,6 +44,10 @@ Perfil de Administrador para testar funcionalidades do front-end:
 - PostgreSQL
 - JWT
 - OAuth2
+## Front end
+- Javascript + HTML & CSS
+- React
+- Axios
 
 # Como executar o projeto
 
